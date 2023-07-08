@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tere Bin</title>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script> -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-user-select: none;
+            -webkit-touch-callout: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            touch-action: manipulation;
+        }
+
+        h1 {
+            color: rgb(250, 165, 7);
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            text-align: center;
+            margin: auto;
+            letter-spacing: 10px;
+            font-size: 40px;
+            padding: 5px;
+            padding-top: 15px;
+            text-shadow: 2px 2px 20px rgb(255, 115, 0);
+            /* margin-bottom: 10px; */
+        }
+
+        body {
+            height: 100vh;
+            background-color: rgb(63, 59, 59);
+        }
+
+        main {
+            width: 100%;
+            margin: auto;
+            /* border: 10px solid rgb(61, 57, 57); */
+            margin-bottom: 50px;
+        }
+
+        .poster {
+            width: 90%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+            padding: 10px;
+            border-radius: 10px 50px;
+            box-shadow: 1px 1px 4px 4px rgb(24, 23, 23);
+            cursor:pointer;
+        }
+
+        #photo {
+            height: 450px;
+            object-fit: cover;
+
+        }
+
+        .rot {
+            background-size: cover;
+            rotate: -90deg;
+            /* object-fit: contain; */
+            object-fit: cover;
+            width: 50%;
+            height: auto;
+        }
+
+        video {
+            width: 75%;
+            /* height: 800px; */
+            cursor: pointer;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            object-fit: cover;
+            background-repeat: no-repeat;
+            border-radius: 10px 50px;
+            box-shadow: 1px 1px 4px 4px rgb(24, 23, 23);
+        }
+
+        .continer {
+            /* margin-top:150px; */
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 50px;
+            /* margin: 20px; */
+            object-fit: cover
+        }
+
+        #haya1 {
+            cursor: pointer;
+            width: 75%;
+            /* height: 500px; */
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            object-fit: cover;
+            background-repeat: no-repeat;
+            border-radius: 10px 50px;
+            box-shadow: 1px 1px 4px 4px rgb(24, 23, 23);
+            margin-bottom: 20px;
+        }
+
+        @media(max-width:2000px) {
+            .continer {
+                /* margin-top:150px; */
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 50px;
+                /* margin: 20px; */
+                object-fit: cover
+            }
+
+            video {
+                width: 75%;
+                /* height: 500px; */
+                margin: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                object-fit: cover;
+                background-repeat: no-repeat;
+                border-radius: 10px 50px;
+                box-shadow: 1px 1px 4px 4px rgb(24, 23, 23);
+            }
+
+            #haya1 {
+                width: 75%;
+                /* height: 500px; */
+                /* margin: auto; */
+                margin-bottom: 50px;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                object-fit: cover;
+                background-repeat: no-repeat;
+                border-radius: 10px 50px;
+                box-shadow: 1px 1px 4px 4px rgb(24, 23, 23);
+            }
+
+            main {}
+
+            h1 {
+                padding: 5px;
+            }
+
+            .poster {
+                width: 95%;
+                height: auto;
+                display: flex;
+                justify-content: center;
+                align-items: start;
+                flex: 1;
+                padding: 0;
+                border-radius: 10px 50px;
+                box-shadow: 1px 1px 4px 4px rgb(24, 23, 23);
+            }
+
+            #photo {
+                height: 1%;
+                object-fit: cover;
+
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Tere Bin</h1>
+    <main class="poster"><img src="./download.jpg" alt="" class="poster" id="photo" onclick="Videoplay('photo')" ondblclick="videoPause('photo')"></main>
+    <div class="continer">
+        <video src="./vid7.mp4" id="vid7" onclick="Videoplay('vid7')" ondblclick="videoPause('vid7')"></video>
+        <!-- <video src="./vid6.mp4" class="rot" id="vid6"></video> -->
+        <video src="./vid4.mp4" id="vid4" onclick="Videoplay('vid4')" ondblclick="videoPause('vid4')"></video>
+        <video src="./vid2.mp4" id="vid2" onclick="Videoplay('vid2')" ondblclick="videoPause('vid2')"></video>
+        <!-- <video src="./vid3.mp4" class="rot" id="vid3"></video> -->
+        <video src="./vid5.mp4" id="vid5" onclick="Videoplay('vid5')" ondblclick="videoPause('vid5')"></video>
+        <video src="./vid1.mp4" id="vid1" onclick="Videoplay('vid1')" ondblclick="videoPause('vid1')"></video>
+        <img src="./haya1.jpg" alt="" id="haya1" onclick="Videoplay('haya1')" ondblclick="videoPause('haya1')">
+    </div>
+
+
+
+
+
+
+
+    <script>
+        var tone = 1;
+        var haya1 = new Audio("./haya1.mp3")
+        var tereBin = new Audio("./tereBin.mp3")
+        // if(tone==1){
+        // tereBin.play();
+        // // tone=0;
+        // }
+        function Videoplay(eve) {
+            pau();
+            if (eve == "haya1") {
+                haya1.play();
+            }
+            if (eve == "photo") {
+                tereBin.play();
+            }
+            document.getElementById(eve).play();
+        }
+        function videoPause(eve) {
+            pau();
+            if (eve == "haya1") {
+                haya1.pause();
+            }
+            if (eve == "photo") {
+                tereBin.pause();
+            }
+            document.getElementById(eve).pause();
+        }
+        function pau() {
+            for (var i = 0; i < document.getElementsByTagName("video").length; i++) {
+                document.getElementsByTagName("video")[i].pause();
+                haya1.pause();
+            }
+        }
+
+
+
+    </script>
+</body>
+
+</html>
